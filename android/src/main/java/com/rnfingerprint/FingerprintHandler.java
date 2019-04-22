@@ -40,7 +40,7 @@ public class FingerprintHandler extends FingerprintManager.AuthenticationCallbac
 
     @Override
     public void onAuthenticationFailed() {
-        mCallback.onError("Not recognized. Try again.", FingerprintAuthConstants.AUTHENTICATION_FAILED);
+        mCallback.onFingerprintError();
     }
 
     @Override
@@ -59,6 +59,8 @@ public class FingerprintHandler extends FingerprintManager.AuthenticationCallbac
 
     public interface Callback {
         void onAuthenticated();
+
+        void onFingerprintError();
 
         void onError(String errorString, int errorCode);
 
